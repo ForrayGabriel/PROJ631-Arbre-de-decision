@@ -1,2 +1,2 @@
-# PROJ631 : _Arbre de decision_
+# PROJ631 : __Arbre de decision__
 First mini project for the PROJ631 about creating a decision tree
