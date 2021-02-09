@@ -1,6 +1,6 @@
 import csv
 
-def read_csv(fichier):
+def csv-reader(fichier):
 	
 	with open(fichier, newline='') as csvfile:
 		reader = csv.reader(csvfile, delimiter = ' ', quotechar='|')
