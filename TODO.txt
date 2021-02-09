@@ -1,0 +1,10 @@
+Phase d'apprentissage :
+	- Lecture des .cvs : DONE
+	- Stockages des données
+	- Construction d'ID3
+	- Determinaion de la matrice de confusion
+
+Phase de prédiction :
+	- Saisie du jeu de donnée dont déterminer l'issue
+	- Pédiction par parcours de l'arbre
+	- 
