@@ -1,11 +1,10 @@
-
 import math
 
 
 class IG_calculator:
 
 	def __init__(self, Sapp):
-		pass
+        pass
 
 	def get_IG(self, data):
 

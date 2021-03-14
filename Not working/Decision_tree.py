@@ -4,6 +4,7 @@ import Tree_making.Link as link
 import ID3
 import math
 
+
 class Decision_tree:
 
     def __init__(self, file):
@@ -20,8 +21,7 @@ class Decision_tree:
 
         self.afficheTree(root)
 
-
-    #https://www.vtupulse.com/machine-learning/decision-tree-id3-algorithm-in-python/
+    # https://www.vtupulse.com/machine-learning/decision-tree-id3-algorithm-in-python/
 
     def treeBuilding(self, data, attributs):
 
@@ -40,24 +40,25 @@ class Decision_tree:
         print("youou", uniq)
 
         for u in uniq:
-            subset = self.IG_calc.keep(data[2],u, index)
+            subset = self.IG_calc.keep(data[2], u, index)
             print("uuu", subset)
 
-            if self.entropy(subset) == 0.0 :
+            if self.entropy(subset) == 0.0:
                 newNode = nd.Node()
                 newNode.isLeaf = True
                 newNode.setLabel(u)
                 newNode.pred = subset[0][len(subset[0])-1]
                 root.addChildren(newNode)
-            else :
+            else:
                 node = nd.Node()
                 node.setLabel(u)
                 newData = self.IG_calc.attributRemover(data, index)
 
-                child = self.treeBuilding(newData, attributs[:index]+ attributs[index+1:])
+                child = self.treeBuilding(newData,
+                                          attributs[:index]
+                                          + attributs[index+1:])
                 node.addChildren(child)
                 root.addChildren(node)
-
 
         return root
 
@@ -77,31 +78,30 @@ class Decision_tree:
                 new.append(reducedSet)
         return new
 
-
     def get_best(self, S):
         best = 0
         max = 0
         for i in S:
-            if i[1] > max :
+            if i[1] > max:
                 best = i[0]
                 max = i[1]
 
-        return  best
+        return best
 
     # Function that check if one of the attribute only return the same result
     def check_pure_class(self, sets):
 
         res = []
-        for i in sets :
+        for i in sets:
             first = i[0][len(i[0])-1]
             pure = True
-            for j in i :
+            for j in i:
                 if j[len(i[0])-1] != first:
                     pure = False
             res.append([pure, first, i[0][3]])
         return res
 
-    def entropy(self,data):
+    def entropy(self, data):
         pos = 0.0
         neg = 0.0
         for i in data:
@@ -116,7 +116,7 @@ class Decision_tree:
             n = neg / (pos + neg)
             return -(p * math.log(p, 2) + n * math.log(n, 2))
 
-    def afficheTree(self, node, prof = 1):
+    def afficheTree(self, node, prof=1):
 
         for i in range(prof):
             print("\t", end="")
@@ -128,10 +128,4 @@ class Decision_tree:
         for i in node.getChildren():
             self.afficheTree(i, prof+1)
 
-
-
-
-
 a = Decision_tree("golf.csv")
-
-

@@ -14,19 +14,18 @@ class Predicteur:
         return res
 
     def predict(self, node):
-        print(node.value)
         res = self.info[node.value]
         bool = False
         for i in node.children:
-            print("Child values :", i.value)
-            if i.value == res :
-                print("oui")
-                if i.isLeaf :
+            if i.value == res:
+                if i.isLeaf:
                     return i.pred
                 bool = True
                 ress = self.predict(i.children[0])
-        if bool == False:
-            print("Il y a une erreur sur la saisie")
+        if not bool:
+            print("Error : user "
+                           "entry doesn't correspond to any known data")
+            return False
         return ress
 
     def getRes(self):
