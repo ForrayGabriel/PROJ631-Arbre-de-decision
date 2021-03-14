@@ -1,23 +1,29 @@
 class Node:
 
     #Constructeur d'un noeud
-    def __init__(self,lbl, father = None):
-        self.label = lbl
-        self.father = father
+    def __init__(self):
+        self.label = ""
+        self.pred =   ""
         self.children = []
-        if father:
-            father.add_child(self)
+        self.isLeaf = False
 
-    def add_child(self, child):
+    def addChildren(self, child):
         self.children.append(child)
 
-    #Getter du nom du noeud
-    def get_content(self):
+    def setLabel(self, lbl):
+        self.label = lbl
+
+    def setNext(self, next):
+        self.next=next
+
+    def setChildren(self, child):
+        self.children = child
+
+    def getLabel(self):
         return self.label
 
-    #Getter de la liste des enfants
-    def get_children(self):
-        return self.children
+    def getNext(self):
+        return self.next
 
-    def get_father(self):
-        return self.father
+    def getChildren(self):
+        return self.children

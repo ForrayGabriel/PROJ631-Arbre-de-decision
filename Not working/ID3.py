@@ -1,31 +1,19 @@
-import Sapp_reader as Sr
+
 import math
 
 
 class IG_calculator:
 
 	def __init__(self, Sapp):
-		self.Sapp = Sapp
+		pass
 
-	def set_Sapp(self, Sapp):
-		self.Sapp = Sapp
-
-	def get_IG(self):
-
-		#entropy_global = entropy_set(Sapp, len(Sapp[0])-1)
-		#print("The global entropy is ", entropy_global)
-		#print(Sapp[0], "\n", Sapp[1], "\n", Sapp[2])
-		#Sub_setter(Sapp,0)
-		#print("Hein ?" ,set_divider(Sub_setter(Sapp,0)[0]))
-		#print("Entropy de ",Sub_setter(Sapp,0)[1][0][0], " :", entropy_set(set_divider(Sub_setter(Sapp,0)[1]),4))
-
-		#print(Information_Gain(Sapp,0))
-
+	def get_IG(self, data):
 
 		Info_Gain = []
-		for i in range(len(self.Sapp[0])-1):
-			Info_Gain.append([i,self.Information_Gain(self.Sapp,i)])
+		for i in range(len(data[0])-1):
+			Info_Gain.append([i,self.Information_Gain(data,i)])
 
+		print("je sais pas smamam",Info_Gain)
 		return(Info_Gain)
 
 	# Function that return the information gain for a given index
@@ -37,11 +25,8 @@ class IG_calculator:
 		j = 0
 
 		for i in S[1][index]:
-			print(i)
-			print(self.p(i,S,index))
 			I += self.p(i,S,index) * self.entropy_set(self.set_divider(self.Sub_setter(S,index)[j]),len(S[0])-1)
 			j+=1
-		print(I)
 		return(entropy_global-I)
 
 	# Function that return a list in which each list only contain one result at the given posistion
@@ -100,3 +85,30 @@ class IG_calculator:
 			attributs_val.append(val)
 
 		return None,attributs_val, S
+
+	def attributRemover(self, data, index):
+		list1 = []
+		list2 = []
+		list3 = []
+		for i in range(len(data[0])):
+			if i != index:
+				list1.append(data[0][i])
+		for i in range(len(data[1])):
+			if i != index:
+				list2.append(data[1][i])
+		for j in data[2]:
+			list4 = []
+			for i in range(len(j)):
+				if i != index:
+					list4.append(j[i])
+			list3.append(list4)
+
+		res = [list1, list2, list3]
+		return res
+
+	def keep(self, data, label, index):
+		res = []
+		for i in data:
+			if i[index] == label:
+				res.append(i)
+		return res

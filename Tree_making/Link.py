@@ -2,10 +2,10 @@ import Tree_making.Node as nd
 
 class Link:
 
-    def __init__(self, name ,start, end):
+    def __init__(self, name):
         self.name = name
-        self.start = start
-        self.end = end
+        self.start = None
+        self.end = None
 
     def get_name(self):
         return self.name
@@ -15,3 +15,9 @@ class Link:
 
     def get_end(self):
         return self.end
+
+    def setStart(self, node):
+        self.start = node
+
+    def setEnd(self, node):
+        self.end = node
