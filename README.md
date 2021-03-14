@@ -16,9 +16,9 @@ Just launch main.py using a python interpreter.
 The program will ask you the path to the file containing the training data (you can use the given data.csv).
 
 Then a menu will show. By typing the right number and pressing enter you can :
-*Display the data
-*Display the decision tree
-*Make a prediction
+* Display the data
+* Display the decision tree
+* Make a prediction
 
 When choosing to make a prediction, you will be asked various informations. If one of your answers is necessary and doesn't correspond to any know data, an error message will be displayed.
 
