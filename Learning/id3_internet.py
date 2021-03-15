@@ -1,6 +1,8 @@
 import math
 import numpy as np
 
+# Code founded on https://www.vtupulse.com/machine-learning/decision-tree-id3-algorithm-in-python/
+
 class Node:
     def __init__(self):
         self.children = []
