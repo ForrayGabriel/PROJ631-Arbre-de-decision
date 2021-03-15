@@ -28,3 +28,11 @@ All of the useless files that I initially made but are useless
 
 * csv_reader : open a .csv file and return the data
 * sapp_reader : use the .csv reader to retreive the 
+* ID3 : contains the function to calculate and split sets
+* Decision_tree : Tries to make a tree but doesn't work
+
+_Learning folder :_ 
+* id3_internet : The file that make a decision tree out of data
+
+_Predicting folder :_ 
+* pred : The file that give a prediction
