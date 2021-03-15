@@ -11,6 +11,8 @@ I took [this algorythm](https://www.vtupulse.com/machine-learning/decision-tree-
 I then made the part that use the tree given by the algorythm to predict the answer.
 
 # How to use :
+This program require the librairies numpy and pandas.
+
 Just launch main.py using a python interpreter.
 
 The program will ask you the path to the file containing the training data (you can use the given data.csv).
