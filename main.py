@@ -1,17 +1,29 @@
 import pandas as pd
-import math
-import numpy as np
-import Apprentissage.id3_internet as appr
-import Prediction.pred as pred
+import Learning.id3_internet as appr
+import Predicting.pred as pred
 
-data = pd.read_csv("3-dataset.csv")
+file = input("Chemin du fichier :\n")
+
+data = pd.read_csv(file)
+
 features = [feat for feat in data]
 features.remove("answer")
 
-Root = appr.ID3(data, features)
+TreeMaker = appr.TreeMaker()
 
-Predicteur  = pred.Predicteur(Root, features)
+Root = TreeMaker.ID3(data, features)
 
-print(Predicteur.getRes())
-
-
+choice = "0"
+while choice != "4":
+    choice = input("1- Display data\n"
+                   "2- Display tree\n"
+                   "3- Make a prediction\n"
+                   "4- Quit\n")
+    if choice == "1":
+        print("The data are :\n", data)
+    elif choice == "2":
+        TreeMaker.printTree(Root)
+    elif choice == "3":
+        Predicteur = pred.Predicteur(Root, features)
+        if Predicteur.getRes():
+            print("The prediction is :", Predicteur.getRes()[0])
