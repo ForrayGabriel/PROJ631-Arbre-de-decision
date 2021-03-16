@@ -2,7 +2,7 @@ import pandas as pd
 import Learning.id3_internet as appr
 import Predicting.pred as pred
 
-file = input("Chemin du fichier :\n")
+file = input("File path :\n")
 
 data = pd.read_csv(file)
 
